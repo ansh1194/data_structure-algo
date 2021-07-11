@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 
+
 //Node class
 class Node{
 public:
@@ -7,19 +8,12 @@ public:
     Node* next;
 };
 
+
 // Funtions to push node in front
 void pushNode(Node** head, int data);
 
-// Finstion to put data in the end
-void addAtEnd(Node** head, int data);
-
-// Function to put data at a given position
-void addAtPosition(Node** head, int data, int position);
-
 // Function to print the list
 void printList(Node* head);
-
-// Program to insert a node in a singly linked list 
 
 int main(int argc, char* argv[]){
 
@@ -27,20 +21,23 @@ int main(int argc, char* argv[]){
     Node* head =  NULL;
 
 
-    pushNode(&head, 5);
-    pushNode(&head,6);
-    pushNode(&head,7);
-    
-    
-    // Pushing node at the head
+    pushNode(&head,1);
+    pushNode(&head,11);
+    pushNode(&head,2);
     pushNode(&head,8);
-    // Pushing node at the end 
-    // addAtEnd(&head,9);
-    // Pushing node at a position
-    // addAtPosition(&head,6.5,3);
+    pushNode(&head,9);
+    pushNode(&head,5);
+    pushNode(&head,7);
 
     // Print the end List
     printList(head);
+
+    if(swapNode(head,1,7)){
+        // Print the end List
+        printList(head);
+    }else{
+        std::cout << "The List does not contain the data " << std:: endl;
+    }
 
 }
 
@@ -54,21 +51,13 @@ void pushNode(Node** head, int data){
 }
 
 
-void addAtEnd(Node** head, int data){
-
-}
-
-void addAtPosition(Node** head, int data, int position){
-
-}
-
-
 void printList(Node* head){
 
     Node* current  = head;
     while(current!=NULL){
-        std::cout << current->val;
+        std::cout << current->val << "\t";
         current = current->next;
     }
+    std::cout << std::endl;
 
 }
