@@ -1,7 +1,6 @@
-
-//Node class
 #include <bits/stdc++.h>
 
+//Node class
 class Node{
 public:
     int val;
