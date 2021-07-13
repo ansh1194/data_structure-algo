@@ -1,0 +1,68 @@
+Graph Theory Docs
+*----------------*
+
+
+Properties:
+1) Consists of finite set of nodes
+2) COnsists of finite set of pairs (x,y) called edges wherein (x,y)!=(y,x) i.e. the pairs are ordered or unordered (x,y)==(x.y). 
+
+Application:
+1) Networks
+
+Types of Graphs:
+1) Undirected Graph 
+	-a graph with unordered pairs
+	-e.g. goup of people buying gifts for other
+2) Directed Graph
+	-a graph with ordered pairs
+	-e.g. connected cities
+3) Weighted Graph
+	-a graph with an arbitrary value assigned to the edges
+	-e.g. distance between connected cities
+4) Special Graph
+	-Trees
+		-an undirected graph
+	-Rooted trees
+		-in-tree -> where nodes point towards the root
+		-out-tree -> where nodes point away from tree
+	-Directed Acyclic Graph
+		-directed graph with no cycles
+	-Bipartite graph
+	
+
+Representation Of GRAPH:
+
+1) Adjancency matrix
+	-M[i][j] is the distance/edge-weight from node 'i' to node'j'
+2) Adjancency List
+	-each node has a list of map to other nodes with their weight
+3) Edge List 
+	-list of all the pairs and their edge weight
+
+
+
+Graph Traversal
+*-------------*
+
+1)DFS 
+
+Time Complexity = O(V+E)
+
+Application:
+-count connected components
+-find bridges
+
+Pseudo Code:
+
+	n = number of nodes
+	g = adjacency list
+	visited = [] // visted nodes
+
+	void dfs(postion){
+	if visited[position]
+		return
+
+	neighbours  = graph[position]
+	for next in neighbours
+	dfs(next)
+	}
