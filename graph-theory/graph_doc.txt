@@ -66,3 +66,91 @@ Pseudo Code:
 	for next in neighbours
 	dfs(next)
 	}
+
+2) BFS
+
+Time Complexity  = O(V+E)
+
+
+Application:
+-finding shortest path in unweighted graph
+
+Pseudo Code:
+
+	n = number of nodes
+	g = adjacency list 
+	
+	// s is the start node; e is the end node
+	function bfs(s,e){
+		prev = solve(s)
+		return recontructPath(e,s,prev)
+	}		
+		
+	solve(s){
+		q  //queue data structure
+		q.enqueue(s)
+		
+		visited = [false,false ...]
+		visited[s] = true
+
+		prev = [null,null...]
+		while(!q.empty()){
+			node = q.dequeue()
+			neighbor = g.get(node)
+
+			for(next:neighnor)
+				if(!visited(next))
+					q.enqueque(next)
+					visited[next] = true
+					prev[next] = node
+		return prev
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
