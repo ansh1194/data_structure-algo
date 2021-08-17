@@ -36,30 +36,42 @@ void parsePacket(uint8_t *packet){
 void parseDisplayMessage(uint8_t *packet){
 
     char str[MAX_MESSAGE_LENGTH];
-    int length = *(packet+2) | (*(packet+3) << 8);
+    int length = *(packet+2) | (*(packet+3) >> 8);
     // printf("%d", length);
 
     for(uint8_t i=0; i<length; i++){
         str[i] = *(packet+4 +i);
     }
-    
+    // printf("%s", str);
     display_message(str);
 }
 
 
 void parseMotorMessage(uint8_t *packet){
 
-    int forward_back;
-    int left_right;
-    uint64_t temp;
+    uint32_t forward_back = 0;
+    uint32_t left_right = 0;
+    uint8_t temp = 0;
 
     int length = *(packet+2) | (*(packet+3) << 8); 
 
     for(uint8_t i=0; i<length; i++){
-        temp |= (*(packet+3) << 2^(3*i));
+        
+        temp = (*(packet+ 4 + i));
+        printf("%d \n", temp);
+        if(i>4){
+            left_right |= temp;
+            left_right = left_right << 8;
+        }else{
+            forward_back |= temp;
+            forward_back = forward_back << 8;
+        }
+
     }
-    printf("%ld \n", temp);
-    printf("%ld, %ld", (temp&0xFFFF0000)>>32, temp&0xFFFF);
+    printf("%d \n", forward_back);
+    printf("%d \n", left_right);
+    // printf("%ld \n", temp);
+    // printf("%ld, %ld", (temp&0xFFFF0000)>>32, temp&0xFFFF);
 }
 
 void display_message(char *str){
