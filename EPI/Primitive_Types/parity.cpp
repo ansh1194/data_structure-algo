@@ -5,7 +5,7 @@ Computing the parity of the word
 */
 
 
-#include "common.h"
+#include "../Lib/common.h"
 
 /*
     Remember : x & (x-1) => lower most bit cleared in x
@@ -21,6 +21,8 @@ int optimizedSol1(int &num)
 
         num &= num - 1;
     }
+
+    return parity;
 }
 
 /*
@@ -41,7 +43,7 @@ int optimizedSol2(int &num)
 
 int main()
 {
-    int num = 4116512;
+    int num = 10;
     int parity = optimizedSol1(num);
 
     std::cout << "The parity of the given number with 1st Optimized Solution is : " << parity << std::endl;
