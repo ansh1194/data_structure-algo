@@ -24,8 +24,8 @@ struct Rect rectangleInt(struct Rect& r1, struct Rect& r2)
          r1.y + r1.length >= r2.length)
     {
         return {std::max(r1.x, r2.x), std::max(r1.y, r2.y),
-                std::max(r1.x + r1.width, r2.x + r2.width ), 
-                std::max(r1.y + r1.length, r2.y + r2.length)};
+                std::min(r1.x + r1.width, r2.x + r2.width ) - std::max(r1.x, r2.x), 
+                std::max(r1.y + r1.length, r2.y + r2.length) - std::max(r1.y, r2.y)};
     }
 
     return {0,0,-1,-1};
